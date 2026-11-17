@@ -1,0 +1,56 @@
+{
+  "name": "jarvis-meeting",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/nexaiadvisors/jarvis-meeting.git" },
+  "description": "Jarvis meeting bot control plane — dispatches Recall.ai bots, relays transcripts, and retrieves company knowledge for the realtime agent.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "jarvis-meeting": "dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && npm run build:web",
+    "build:web": "tsc -p web/tsconfig.json && node scripts/build-web.mjs",
+    "start": "node --enable-source-maps dist/index.js",
+    "cli": "tsx src/cli/index.ts",
+    "connector": "tsx src/connector/folder-connector.ts",
+    "up": "bash scripts/up.sh",
+    "dev": "tsx watch src/index.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p web/tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "echo 'lint: not wired yet'"
+  },
+  "dependencies": {
+    "@anam-ai/js-sdk": "^4.29.2",
+    "@anthropic-ai/sdk": "^0.104.2",
+    "@azure/identity": "^4.13.1",
+    "@azure/storage-blob": "^12.32.0",
+    "@hono/node-server": "^1.13.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "hono": "^4.12.23",
+    "js-yaml": "^5.2.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "wavtools": "^0.1.5",
+    "ws": "^8.23.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@excalidraw/excalidraw": "^0.18.1",
+    "@excalidraw/mermaid-to-excalidraw": "^3.6.0",
+    "@types/node": "^22.5.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@types/ws": "^8.18.2",
+    "esbuild": "^0.28.1",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "vitest": "^4.1.5"
+  }
+}

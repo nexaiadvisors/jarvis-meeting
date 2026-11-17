@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Meeting</title>
+    <style>
+      :root { color-scheme: light dark; --bg: #fbfaf7; --fg: #1d1c1a; --muted: #6b6860; --line: #dedbd2; --card: #ffffff; --accent: #2f5fd0; --live: #b3261e; }
+      @media (prefers-color-scheme: dark) { :root { --bg: #161615; --fg: #ecebe6; --muted: #a09d94; --line: #34332f; --card: #1f1f1d; --accent: #8fb0ff; --live: #ff8a80; } }
+      html, body { margin: 0; }
+      body { background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+      main { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+      h1 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 6px; overflow-wrap: anywhere; }
+      h2 { font-size: 1.05rem; margin: 0 0 10px; }
+      .mp-meta { color: var(--muted); font-size: 0.92rem; margin-bottom: 24px; }
+      .mp-live { color: var(--live); font-weight: 600; }
+      section { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; margin-bottom: 16px; }
+      ul { margin: 0; padding-left: 20px; }
+      li { margin: 4px 0; overflow-wrap: anywhere; }
+      .mp-empty { color: var(--muted); margin: 0; }
+      .mp-artifacts { list-style: none; padding: 0; }
+      .mp-artifacts a { color: var(--accent); font-weight: 600; text-decoration: none; }
+      .mp-artifacts a:hover { text-decoration: underline; }
+      .mp-kind, .mp-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-right: 8px; }
+      .mp-owner { font-weight: 600; }
+      .mp-due { color: var(--muted); }
+      .mp-transcript { max-height: 60vh; overflow: auto; font-size: 0.95rem; }
+      .mp-line { display: grid; grid-template-columns: 4.2em 1fr; gap: 8px; padding: 3px 0; }
+      .mp-time { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 0.85rem; padding-top: 2px; }
+      .mp-speaker { font-weight: 600; }
+      .mp-message { padding: 48px 16px; text-align: center; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/meeting-page.js"></script>
+  </body>
+</html>

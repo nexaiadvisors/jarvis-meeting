@@ -1,0 +1,14 @@
+node_modules/
+dist/
+public/
+web/agent-frame/*.js
+.env
+.env.local
+.data/
+*.jsonl
+
+# Real teammate SOULs are personal — keep them out of git.
+# example.md and README.md are the only tracked files under soul/.
+soul/*.md
+!soul/example.md
+!soul/README.md

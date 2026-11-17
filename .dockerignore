@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+.env.local
+.data
+tests/
+*.md
+# Real teammate SOULs are personal (gitignored); only the example and the README ship.
+soul/*
+!soul/example.md
+!soul/README.md

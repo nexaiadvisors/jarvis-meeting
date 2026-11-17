@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "rootDir": "..",
+    // The browser page was ported verbatim from a build without these two
+    // checks; re-enabling them would require rewriting the faithful page logic
+    // (e.g. the chunk-local PCM resampler's guarded index access). Relaxed here
+    // only for the browser bundle — the service tsconfig keeps them on.
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false
+  },
+  "include": ["agent-frame/**/*", "panel/**/*", "artifact/**/*", "meeting-page/**/*", "../src/agent/**/*"]
+}
