@@ -1,6 +1,7 @@
 // Jarvis Meeting — control plane entrypoint.
 // Loads config, builds the app (src/app.ts), starts the Hono server and the sweep.
 
+import { DEFAULT_PERSONAL_DENY_TERMS } from './agent/work-scope.js';
 import { serve } from '@hono/node-server';
 import { loadConfig } from './config.js';
 import { createApp } from './app.js';
@@ -12,6 +13,9 @@ import type { Server } from 'node:http';
 
 async function main(): Promise<void> {
   const config = loadConfig();
+  if (config.personalDenyTerms.every((t) => DEFAULT_PERSONAL_DENY_TERMS.includes(t))) {
+    console.warn(JSON.stringify({ level: 'warn', msg: 'PERSONAL_DENY_TERMS is empty: only the generic privacy stems apply. Add your family names and private projects before the bot joins a call with guests.' }));
+  }
 
   // Persist and rehydrate meeting registry across daemon restarts.
   enableRegistryPersistence(undefined, { maxLiveAgeMs: config.maxDurationMs });
